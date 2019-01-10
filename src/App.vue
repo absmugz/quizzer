@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <quiz-list v-bind:quizzes="quizzes"></quiz-list>
-    <create-quiz></create-quiz>
+    <create-quiz v-on:create-quiz="CreateQuiz"></create-quiz>
   </div>
 </template>
 
@@ -15,10 +15,21 @@ export default {
   components: {
     QuizList,
     CreateQuiz
+  },methods:{
+
+    CreateQuiz(newQuiz) {
+     this.quizzes.push({
+        title:newQuiz.title,
+        description: newQuiz.description,
+        cards: []
+
+      });
+    }
   },
   data() {
     return {
       quizzes:[{
+        id:1,
         title:"Chapter 1",
         description:"This is a sample description.",
         cards: [
@@ -31,6 +42,7 @@ export default {
           }
         ]
         },{
+        id:2,
         title:"Chapter 2",
         description:"This is a another sample description.",
         cards: []
