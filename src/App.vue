@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <quiz-list v-bind:quizzes="quizzes"></quiz-list>
+    <create-quiz></create-quiz>
   </div>
 </template>
 
 <script>
 
 import QuizList from './components/Quizlist';
+import CreateQuiz from './components/CreateQuiz';
 
 export default {
   name: 'App',
   components: {
-    QuizList
+    QuizList,
+    CreateQuiz
   },
   data() {
     return {
